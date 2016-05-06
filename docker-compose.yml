@@ -1,6 +1,9 @@
 appmongo:
   image: mongo:3
   command: mongod --noauth --storageEngine wiredTiger --wiredTigerDirectoryForIndexes --directoryperdb
+  dns: 172.17.0.1
+  dns_search: docker
+  hostname: appmongo.mongo.dev.docker
 
 #backupmongo:
 #  image: mongo:3
@@ -17,4 +20,7 @@ opsmanager:
   volumes:
     #- ./mms/conf:/opt/mongodb/mms/conf
     - ./mms/logs:/opt/mongodb/mms/logs
+  dns: 172.17.0.1
+  dns_search: docker
+  hostname: opsmanager.mongo.dev.docker
     
